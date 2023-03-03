@@ -77,10 +77,14 @@ body {
   transition:  background-color 0.5s ease 0s;
   border-radius: 50px;
   text-align: center;
-  top: calc(50% - 52px/2)
 }
 .button:hover{
   background-color: #7bb6f5;
+}
+@media (max-width: 829.98px) {
+  .button{
+    padding: 14px 20px; 
+  }
 }
 
 
@@ -115,17 +119,16 @@ body {
 .menu__icon {
 
 }
-.icon-menu {
-  
-}
+
 .menu__list {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  row-gap: 3px; /*застосує відстань 3 пікселі між рядками всередині контейнера*/
   column-gap: 35px;
 }
-
 .menu__item {
 }
-
 .menu__link {
   color: #FFFFFF;
   font-weight: 300;
@@ -135,15 +138,13 @@ body {
 .menu__link:hover {
   text-decoration: underline;
 }
-
 .header__cart {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 5px; /*задає відстань між елементами, яка включає відстань між блоками, 
+  рядками та колонками*/
   color: #FFFFFF; 
 }
-
-
 .cart-header {
 }
 .cart-header:hover .cart-header__text {
@@ -169,5 +170,50 @@ body {
   line-height: 1; /* 14/14 */
 }
 .header__button {
-
+  flex: 0 0 auto;
 }
+
+@media (max-width: 829.98px) {
+  .menu__link,
+   .menu__list,
+   .header__container {
+    font-size: 14px;
+    column-gap: 25px;
+  }
+}
+.icon-menu {
+  
+}
+/*________________BURGER___________________________*/
+
+@media (max-width: 767.98px) {
+  .icon-menu  {
+    display: block;
+    flex: 0 0 30px;
+    height: 18px;
+    position: relative; 
+    z-index: 5; 
+  }
+  .icon-menu span,
+  .icon-menu::before,
+  .icon-menu::after {
+    content: "";
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+  }
+  .icon-menu::before {
+    top: 0;
+  }
+  .icon-menu::after {
+    bottom: 0;
+  }
+  .icon-menu span {
+    top: calc(50% - 1px);
+  }
+}
+
+
+/*________________END_BURGER___________________________*/
