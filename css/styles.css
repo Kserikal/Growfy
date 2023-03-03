@@ -38,16 +38,136 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
-
+/*________________кінець стандартного шаблону CSS______________________*/
 html,
 body {
   height: 100%;
   line-height: 1;
-  font-size: 14px;
-  color: #737373;
-  background-color: #FAFAFA;
+  font-size: 16px;
+  color: #9C9C9C;
+  background-color: #1E1E1E;
+  font-weight: 300;
+  font-family: "Poppins";
+}
+.wrapper { 
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: clip; /*використовують тоді, коли потрібно відрізати зайвий контент, 
+  але при цьому залишити його видимим на межах елемента.*/
+}
+
+[class*="__container"] { /*Селектор який буде звертатись до всіх класів де є __container*/
+  max-width: 1310px;
+  margin: 0 auto;
+  padding: 0px 15px;
+}
+/*________________Button____________________*/
+
+.button {
+  display: inline-block;
+  text-align: center;
+  padding: 16px 30px;
   font-weight: 500;
-  font-family: Montserrat;
+  font-size: 14px; 
+  line-height: 1.43; /* 22/14 */
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  background-color: #3D96F4;
+  transition:  background-color 0.5s ease 0s;
+  border-radius: 50px;
+  text-align: center;
+  top: calc(50% - 52px/2)
+}
+.button:hover{
+  background-color: #7bb6f5;
+}
+
+
+/*_________________PAGE______________________*/
+
+.page {
+  flex: 1 1 auto; /*Дозволяє розтягуватись на всю вистоту*/
+}
+
+/*_______________HEADER____________________*/
+
+.header__container {
+  display: flex;
+  align-items: center;
+  column-gap: 35px;
+  min-height: 116px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   
 }
-/*________________кінець стандартного шаблону CSS ___________________*/
+.header__logo {
+}
+.header__menu {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  
+}
+.menu { 
+  
+}
+.menu__icon {
+
+}
+.icon-menu {
+  
+}
+.menu__list {
+  display: flex;
+  column-gap: 35px;
+}
+
+.menu__item {
+}
+
+.menu__link {
+  color: #FFFFFF;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.62; /* 26/16 */
+}
+.menu__link:hover {
+  text-decoration: underline;
+}
+
+.header__cart {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #FFFFFF; 
+}
+
+
+.cart-header {
+}
+.cart-header:hover .cart-header__text {
+  text-decoration: underline;
+}
+.cart-header__text {
+  font-weight: 300;
+  font-size: 18;
+  line-height: 1.55; /* 28/18 */
+  line-height: 1px;
+}
+
+.cart-header__quantity {
+  height: 30px;
+  width: 30px;
+  background: rgba(129, 129, 139, 0.3);
+  border-radius: 29.9375px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1; /* 14/14 */
+}
+.header__button {
+
+}
