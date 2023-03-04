@@ -106,6 +106,7 @@ body {
   
 }
 .header__logo {
+
 }
 .header__menu {
   display: flex;
@@ -126,13 +127,15 @@ body {
   justify-content: flex-end;
   row-gap: 3px; /*застосує відстань 3 пікселі між рядками всередині контейнера*/
   column-gap: 35px;
+  font-size: 16px;
 }
 .menu__item {
 }
 .menu__link {
+  display: block; 
   color: #FFFFFF;
   font-weight: 300;
-  font-size: 16px;
+  
   line-height: 1.62; /* 26/16 */
 }
 .menu__link:hover {
@@ -152,7 +155,7 @@ body {
 }
 .cart-header__text {
   font-weight: 300;
-  font-size: 18;
+  font-size: 18px;
   line-height: 1.55; /* 28/18 */
   line-height: 1px;
 }
@@ -161,7 +164,7 @@ body {
   height: 30px;
   width: 30px;
   background: rgba(129, 129, 139, 0.3);
-  border-radius: 29.9375px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,17 +176,28 @@ body {
   flex: 0 0 auto;
 }
 
-@media (max-width: 829.98px) {
+@media (max-width: 855.98px) {
   .menu__link,
    .menu__list,
    .header__container {
     font-size: 14px;
     column-gap: 25px;
   }
+  .header__container {
+    min-height: 90px;
+  }
 }
 .icon-menu {
-  
+  display: none;
 }
+
+.header__button,
+.header__logo,
+.header__cart {
+  position: relative;
+  z-index: 5;
+}
+
 /*________________BURGER___________________________*/
 
 @media (max-width: 767.98px) {
@@ -202,7 +216,8 @@ body {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #fff;
+    background-color: #ffffff;
+    transition: all 0.3s ease 0s;
   }
   .icon-menu::before {
     top: 0;
@@ -213,7 +228,75 @@ body {
   .icon-menu span {
     top: calc(50% - 1px);
   }
+  .menu-open .icon-menu span {
+    width: 0;
+  }
+  .menu-open .icon-menu::before {
+    top: calc(50% - 1px);
+    transform: rotate(-45deg); 
+  }
+  .menu-open .icon-menu::after {
+    bottom: calc(50% - 1px);
+    transform: rotate(45deg); 
+  }
+  .menu__body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    left: -100%; /*меню заховати на ліво*/
+    top: 0;
+    padding: 100px 15px 30px 15px;
+    overflow: auto; /*Дозволяє з'являтися скролу*/
+    transition: left 0.3s ease 0s; /*повільне*/
+  }
+  .menu__body::before { /*цей блок робить чорну підкладку на всю висоту шапки*/
+    content: "";
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    background-color: #000000;
+    z-index: 2;
+  }
+  
+  .menu__list {
+    row-gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+  }
+  .menu__link {
+    font-size: 24px;
+  }
+  .header__container {
+    min-height: 70px;
+  }
+  .menu__link,
+   .menu__list,
+   .header__container {
+    column-gap: 5px;
+  }
+
 }
+.menu-open .menu__body,
+.menu-open .menu__body::before {
+    left: 0; /*Коли через скріпт зявився клас .menu-open,  то повертаємо left 0 ( бо він -100)*/
+  }
+
+
+@media (max-width: 560px) {
+  .header__logo {
+    width: 32px;
+    overflow: hidden; /*приховати все, що виходить за межі елемента*/
+  }
+  .cart-header__text {
+    font-size: 14px;
+  }
+}
+
 
 
 /*________________END_BURGER___________________________*/
