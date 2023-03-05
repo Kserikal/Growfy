@@ -62,6 +62,13 @@ body {
   margin: 0 auto;
   padding: 0px 15px;
 }
+.header {   /*Закріплюємо весь header, щоб він йшов за сторінкою при скролі*/
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(30, 30, 30, 0.459);
+}
 /*________________Button____________________*/
 
 .button {
@@ -297,6 +304,5 @@ body {
   }
 }
 
-
-
 /*________________END_BURGER___________________________*/
+
